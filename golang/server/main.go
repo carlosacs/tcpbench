@@ -39,16 +39,14 @@ func main() {
 }
 
 func handleConnection(conn net.Conn) {
-
-	fmt.Println(conn.RemoteAddr().String() + " -> Received connection")
-
-	begin := time.Now()
-
 	// Close the connection when we're done
 	defer conn.Close()
 
-	// Read incoming data
+	fmt.Println(conn.RemoteAddr().String() + " -> Received connection")
 	buf := make([]byte, common.BUFF_SIZE)
+
+	// Read incoming data
+	begin := time.Now()
 	len := 0
 	for {
 		r, err := conn.Read(buf)

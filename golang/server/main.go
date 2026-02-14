@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	address := ":8080"
+	address := "0.0.0.0:8080"
 	if len(os.Args) > 1 {
 		address = os.Args[1]
 	}
@@ -40,6 +40,8 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 
+	fmt.Println(conn.RemoteAddr().String() + " -> Received connection")
+
 	begin := time.Now()
 
 	// Close the connection when we're done
@@ -63,5 +65,5 @@ func handleConnection(conn net.Conn) {
 	hps := humanize.Bytes(bps)
 
 	// Print the incoming data
-	fmt.Printf("Received: %d (%s) in %s: %d/s (%s/s)", len, hlen, duration, bps, hps)
+	fmt.Printf(conn.RemoteAddr().String()+" -> Received: %d (%s) in %s: %d/s (%s/s)\n\n", len, hlen, duration, bps, hps)
 }

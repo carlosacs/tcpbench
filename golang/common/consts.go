@@ -5,5 +5,5 @@ const (
 	MB = KB * 1024
 	GB = MB * 1024
 
-	BUFF_SIZE = 4 * MB
+	BUFF_SIZE = 16 * MB
 )

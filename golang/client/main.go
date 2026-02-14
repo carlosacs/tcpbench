@@ -26,7 +26,7 @@ func main() {
 
 	// Send some data to the server
 
-	buf := make([]byte, max(common.BUFF_SIZE, dataLen))
+	buf := make([]byte, min(common.BUFF_SIZE, dataLen))
 	for dataLen > 0 {
 		w, err := conn.Write(buf)
 		if err != nil {

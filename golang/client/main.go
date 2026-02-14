@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	dataLen := 200 * common.KB // 1920 * 1080 * 4 * 60
+	dataLen := 10 * common.MB //200 * common.KB // 1920 * 1080 * 4 * 60
 
 	address := "localhost:8080"
 	if len(os.Args) > 1 {

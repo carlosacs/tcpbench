@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
 	"time"
 
 	"tcptest/common"
@@ -11,8 +12,14 @@ import (
 )
 
 func main() {
+
+	address := ":8080"
+	if len(os.Args) > 1 {
+		address = os.Args[1]
+	}
+
 	// Listen for incoming connections on port 8080
-	ln, err := net.Listen("tcp", ":8080")
+	ln, err := net.Listen("tcp", address)
 	if err != nil {
 		fmt.Println(err)
 		return
